@@ -1,4 +1,6 @@
-//console.log(Vue);
 new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+        total: 0
+    }
 });

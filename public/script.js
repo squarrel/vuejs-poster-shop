@@ -1,1 +1,4 @@
-console.log('It works.');
+//console.log(Vue);
+new Vue({
+    el: '#app'
+});

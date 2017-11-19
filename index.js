@@ -15,12 +15,12 @@ app.get('/', function(req, res) {
 });
 
 var instance = axios.create({
-  baseURL: 'https://api.imgur.com/3/',
-  headers: { 'Authorization': 'Client-ID ' + process.env.IMGUR_CLIENT_ID }
+  baseURL: 'http://localhost:8550', // use https
+  //headers: { 'Authorization': 'Client-ID ' + process.env.IMGUR_CLIENT_ID }
 });
 
 app.get('/search/:query', function(req, res) {
-  const url = 'gallery/search/top/0/?' + querystring.stringify({ q: req.params.query });
+  const url = 'api/products?' + querystring.stringify({ q: req.params.query });
   instance.get(url)
     .then(function (result) {
       res.send(result.data.data.filter(item => !item.is_album && !item.nsfw && !item.animated));

@@ -33,11 +33,12 @@
             </div>
             <div class="product" v-for="(item, index) in items">
                 <div class="product-image">
+                    <div class="item-title">{{ item.name }}</div>
                     <img v-bind:src="item.link" />
                 </div>
                 <div class="">
                     <h4 class="product-title">
-                        {{ item.title }}
+                        {{ item.name }}
                     </h4>
                     <p>Price: <strong>{{ price | currency }}</strong></p>
                     <button class="add-to-cart btn" v-on:click="addItem(index)">Dodaj u korpu</button>
@@ -48,7 +49,7 @@
             <h2>Potrošačka korpa</h2>
             <ul>
                 <li class="cart-item" v-for="item in cart">
-                    <div class="item-title">{{ item.title }}</div>
+                    <div class="item-title">{{ item.name }}</div>
                     <span class="item-qty">{{ item.price | currency }} x {{ item.qty }}</span>
                     <button class="btn" v-on:click="inc(item)">+</button>
                     <button class="btn" v-on:click="dec(item)">-</button>

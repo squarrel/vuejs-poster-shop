@@ -15,7 +15,7 @@ new Vue({
         onSubmit: function() {
             this.items = [];
             this.loading = true;
-            this.$http.get('http://localhost:8550/api/products/'.concat(this.newSearch))
+            this.$http.get('http://localhost:8550/api/products/'.concat('?'+this.newSearch))
                 .then(function(response) {
                     this.lastSearch = this.newSearch;
                     this.items = response.data;

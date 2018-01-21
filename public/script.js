@@ -1,4 +1,4 @@
-var PRICE = 9.99;
+// Vue logic
 
 new Vue({
     el: '#app',
@@ -9,7 +9,6 @@ new Vue({
         newSearch: '',
         lastSearch: '',
         loading: false,
-        price: PRICE
     },
     methods: {
         onSubmit: function() {
@@ -24,9 +23,12 @@ new Vue({
             );
         },
         addItem: function(index) {
-            this.total += PRICE;
             var item = this.items[index];
+            price = parseInt(item.price);
+
+            this.total += price;
             var found = false;
+
             for (var i=0; i<this.cart.length; i++) {
                 if (this.cart[i].id === item.id) {
                     found = true;
@@ -34,22 +36,25 @@ new Vue({
                     break;
                 }
             }
+
             if (!found) {
                 this.cart.push({
                     id: item.id,
                     title: item.title,
                     qty: 1,
-                    price: PRICE
+                    price: price
                 });
             }
         },
         inc: function(item) {
             item.qty++;
-            this.total += PRICE;
+            price = parseInt(item.price);
+            this.total += price;
         },
         dec: function(item) {
             item.qty--;
-            this.total -= PRICE;
+            price = parseInt(item.price);
+            this.total -= price;
             if (item.qty <= 0) {
                 for (var i=0; i<this.cart.length; i++) {
                     if (this.cart[i].id === item.id) {
@@ -61,8 +66,8 @@ new Vue({
         }
     },
     filters: {
-        currency: function(price) {
-            return '$'.concat(price.toFixed(2));
+        currency: function(value) {
+            return '$'.concat(parseInt(value).toFixed(2));
         }
     },
     mounted: function() {

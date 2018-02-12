@@ -1,7 +1,24 @@
-// Vue logic
+const Home = {template: '<div>Home page</div>'}
+const Products = {template: '<div>Products</div>'}
+const Product = {template: '<div>Product no. 1</div>'}
+const About = {template: '<div>About</div>'}
+const Contact = {template: '<div>Contact</div>'}
+
+const routes = [
+    {path: '/', component: Home},
+    {path: '/products', component: Products},
+    {path: '/product', component: Product},
+    {path: '/about', component: About},
+    {path: '/contact', component: Contact}
+]
+
+const router = new VueRouter({
+    routes
+})
 
 new Vue({
     el: '#app',
+    router: router,
     data: {
         total: 0,
         items: [],

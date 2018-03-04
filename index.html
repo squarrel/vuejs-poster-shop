@@ -20,23 +20,7 @@
     <script src="node_modules/vue-router/dist/vue-router.js"></script>
 </head>
 <body>
-<div id="app">
-    <div class="header">
-        <h1>Prodavnica</h1>
-        <p>
-            <router-link to="/products">Shop</router-link>
-            <router-link to="/about">About Us</router-link>
-            <router-link to="/contact">Contact</router-link>
-        </p>
-        <form class="searchbar" v-on:submit.prevent="onSubmit">
-            <input placeholder="Tragaj za proizvodima" v-model="newSearch"></input>
-            <input type="submit" value="Tragaj" class="btn"></input>
-        </form>
-    </div>
-    <div class="main">
-        <router-view></router-view>  
-    </div>
-</div>
+<div id="app"></div>
 
 <!-- Scripts -->
 <script src="reload/reload.js"></script>
